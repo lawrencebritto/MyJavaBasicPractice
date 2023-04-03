@@ -1,0 +1,31 @@
+import java.util.*;
+public class ArrayListTrial {
+	public static void main(String[] args)
+	{
+		ArrayList<Integer> ar=new ArrayList<Integer>();
+		ar.add(12);
+		ar.add(14);
+		ar.add(16);
+		ar.add(18);
+		ar.add(20);
+		for(int i=0;i<ar.size();i++)
+		{
+			System.out.print(ar.get(i)+" ");
+		}
+		Collections.reverse(ar);
+		System.out.print("\n"+ar);
+		Collections.sort(ar);
+		System.out.print("\n"+ar);
+		Collections.swap(ar,2,4);
+		System.out.print("\n"+ar);
+		Iterator<Integer> it=ar.iterator();
+		while(it.hasNext())
+		{
+			int num=it.next();
+			if(num==16)
+			{
+				System.out.print("\n"+true);
+			}
+		}
+	}
+}
