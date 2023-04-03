@@ -1,0 +1,35 @@
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetTrial {
+	public static void main(String[] args)
+	{
+		LinkedHashSet<Integer> hs=new LinkedHashSet<Integer>();
+		int num=164321;
+		while(num>0)
+		{
+			int r=num%10;
+			if(hs.contains(r))
+			{
+				
+			}
+			hs.add(r);
+			num=num/10;
+		}
+		System.out.print(hs);
+		Object[] arr=hs.toArray();
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+		/*Iterator<Integer> obj=hs.iterator();
+		while(obj.hasNext())
+		{
+			int num1=obj.next();
+			System.out.print(num1+" ");
+		}*/
+		/*ArrayList<Integer> ar=new ArrayList<Integer>(hs);
+		Collections.reverse(ar);
+		Collections.sort(ar);
+		System.out.println(ar);*/
+	}
+}
