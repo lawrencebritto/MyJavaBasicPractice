@@ -1,0 +1,56 @@
+public class NotNineProblem {
+	public static boolean isNumber(String str)
+	{
+		try
+		{
+			int num=Integer.parseInt(str);
+		}catch(Exception e)
+		{
+			return false;
+		}
+		return true;
+	}
+	public static boolean noNine(int num)
+	{
+		while(num>0)
+		{
+			int r=num%10;
+			if(r==9)
+			{
+				return false;
+			}
+			num=num/10;
+		}
+		return true;
+	}
+	public static void main(String[] args)throws IOException {
+     BufferedReader obj=new BufferedReader(new InputStreamReader(System.in));
+     String str="This is alpha 100 and 101";
+     String[] arr=str.split(" ");
+     int[] intArr=new int[0];
+     for(int i=0;i<arr.length;i++)
+     {
+    	 if(arr[i]!=null)
+    	 {
+    		 if(isNumber(arr[i]))
+    		 {
+    			 int num=Integer.parseInt(arr[i]);
+    			 if(noNine(num))
+    			 {
+    				 intArr=Arrays.copyOf(intArr,intArr.length+1);
+    				 intArr[intArr.length-1]=num;
+    			 }
+    		 }
+    	 }
+     }
+     int result=0;
+     for(int i=0;i<intArr.length;i++)
+     {
+    	 if(intArr[i]>result)
+    	 {
+    		 result=intArr[i];
+    	 }
+     }
+     System.out.print(result);
+    }
+}
