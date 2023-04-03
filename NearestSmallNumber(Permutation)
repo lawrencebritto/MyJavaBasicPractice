@@ -1,0 +1,50 @@
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class NearestSmallNum {
+	public static TreeSet<Long> ts=new TreeSet<Long>();
+	public static void permute(String str,int f,int l,long b)
+	{
+		if(f==l)
+		{
+			long num=Long.parseLong(str);
+			if(num>b)
+			{
+				ts.add(num);
+			}
+		}else
+		{
+			for(int i=f;i<=l;i++)
+			{
+				str=swap(str,f,i);
+				permute(str,f+1,l,b);
+				str=swap(str,f,i);
+			}
+		}
+	}
+	public static String swap(String str,int i,int j)
+	{
+		char[] arr=str.toCharArray();
+		char temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+		return String.valueOf(arr);
+	}
+	public static void main(String[] args) {
+       long a=645757;
+       long b=457765;
+       long min=999999999;
+       String str=Long.toString(a);
+       permute(str,0,str.length()-1,b);
+       Iterator<Long> itrObj=ts.iterator();
+       while(itrObj.hasNext())
+       {
+    	   long num=itrObj.next();
+    	   if(num<min)
+    	   {
+    		   min=num;
+    	   }
+       }
+       System.out.print(min);
+       }
+}
