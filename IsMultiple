@@ -1,0 +1,46 @@
+import java.io.IOException;
+import java.util.Arrays;
+
+public class IsMultiple {
+	public static boolean isMultiple(int num)
+	{
+		if(num%10==0)
+		{
+			return true;
+		}
+		return false;
+	}
+	public static void main(String[] args)throws IOException {
+       int[] arr=new int[]{100,21,5,6,3,7,11,89,10};
+       int len=arr.length;
+       int[] not=new int[0];
+       int[] is=new int[0];
+       for(int i=0;i<len;i++)
+       {
+    	  if(isMultiple(arr[i]))
+    	  {
+    		  is=Arrays.copyOf(is,is.length+1);
+    		  is[is.length-1]=arr[i];
+    	  }else
+    	  {
+    		  not=Arrays.copyOf(not,not.length+1);
+    		  not[not.length-1]=arr[i];
+    	  }
+       }
+       int newArr[]=new int[0];
+       for(int i:not)
+       {
+    	  newArr=Arrays.copyOf(newArr,newArr.length+1);
+ 		  newArr[newArr.length-1]=i;
+       }
+       for(int i:is)
+       {
+    	  newArr=Arrays.copyOf(newArr,newArr.length+1);
+ 		  newArr[newArr.length-1]=i;
+       }
+       for(int i:newArr)
+       {
+    	   System.out.print(i+" ");
+       }
+	}
+}
